@@ -1,19 +1,19 @@
-import { DataStore } from '@aws-amplify/datastore';
-import { Todo } from '../models';
-//import { API } from 'aws-amplify';
+//import { DataStore } from '@aws-amplify/datastore';
+//import { Todo } from '../models';
+import { API } from 'aws-amplify';
 import { useUser } from '../context/AuthContext';
 import { useEffect, useState } from 'react';
-//import { listTodos } from '../graphql/queries';
+import { listTodos } from '../graphql/queries';
 
 
 export default function TodoPage(){
     const { user } = useUser();
     const [todos, setTodos] = useState([]);
     const getTodo = async () => {
-        //const models = await API.graphql({ query: listTodos });
-        //setTodos(models.data.listTodos.items);
-        const models = await DataStore.query(Todo);
-        setTodos(models);
+        const models = await API.graphql({ query: listTodos });
+        setTodos(models.data.listTodos.items);
+        //const models = await DataStore.query(Todo);
+        //setTodos(models);
     } 
 
     useEffect(() => {
