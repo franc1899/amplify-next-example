@@ -1,8 +1,10 @@
-import Amplify from "aws-amplify";
 import Head from "next/head";
+import React, { useEffect } from "react";
+
+import { Amplify } from "aws-amplify";
 import awsconfig from "../aws-exports";
 import AuthContext from "../context/AuthContext";
-import React, { useEffect } from "react";
+
 
 Amplify.configure({ ...awsconfig, ssr: true });
 

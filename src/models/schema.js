@@ -1,5 +1,158 @@
 export const schema = {
     "models": {
+        "Ejemplo2": {
+            "name": "Ejemplo2",
+            "fields": {
+                "id": {
+                    "name": "id",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "descripcion": {
+                    "name": "descripcion",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "Ejemplos": {
+                    "name": "Ejemplos",
+                    "isArray": true,
+                    "type": {
+                        "model": "Ejemplo2Ejemplo"
+                    },
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true,
+                    "association": {
+                        "connectionType": "HAS_MANY",
+                        "associatedWith": "ejemplo2"
+                    }
+                },
+                "createdAt": {
+                    "name": "createdAt",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isReadOnly": true
+                },
+                "updatedAt": {
+                    "name": "updatedAt",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isReadOnly": true
+                }
+            },
+            "syncable": true,
+            "pluralName": "Ejemplo2s",
+            "attributes": [
+                {
+                    "type": "model",
+                    "properties": {}
+                },
+                {
+                    "type": "auth",
+                    "properties": {
+                        "rules": [
+                            {
+                                "allow": "public",
+                                "operations": [
+                                    "create",
+                                    "update",
+                                    "delete",
+                                    "read"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "Ejemplo": {
+            "name": "Ejemplo",
+            "fields": {
+                "id": {
+                    "name": "id",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "name": {
+                    "name": "name",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "description": {
+                    "name": "description",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "ejemplo2s": {
+                    "name": "ejemplo2s",
+                    "isArray": true,
+                    "type": {
+                        "model": "Ejemplo2Ejemplo"
+                    },
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true,
+                    "association": {
+                        "connectionType": "HAS_MANY",
+                        "associatedWith": "ejemplo"
+                    }
+                },
+                "createdAt": {
+                    "name": "createdAt",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isReadOnly": true
+                },
+                "updatedAt": {
+                    "name": "updatedAt",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isReadOnly": true
+                }
+            },
+            "syncable": true,
+            "pluralName": "Ejemplos",
+            "attributes": [
+                {
+                    "type": "model",
+                    "properties": {}
+                },
+                {
+                    "type": "auth",
+                    "properties": {
+                        "rules": [
+                            {
+                                "allow": "public",
+                                "operations": [
+                                    "create",
+                                    "update",
+                                    "delete",
+                                    "read"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
         "Todo": {
             "name": "Todo",
             "fields": {
@@ -73,8 +226,8 @@ export const schema = {
                 }
             ]
         },
-        "Ejemplo": {
-            "name": "Ejemplo",
+        "Ejemplo2Ejemplo": {
+            "name": "Ejemplo2Ejemplo",
             "fields": {
                 "id": {
                     "name": "id",
@@ -83,19 +236,31 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
-                "name": {
-                    "name": "name",
+                "ejemplo2": {
+                    "name": "ejemplo2",
                     "isArray": false,
-                    "type": "String",
+                    "type": {
+                        "model": "Ejemplo2"
+                    },
                     "isRequired": true,
-                    "attributes": []
+                    "attributes": [],
+                    "association": {
+                        "connectionType": "BELONGS_TO",
+                        "targetName": "ejemplo2ID"
+                    }
                 },
-                "description": {
-                    "name": "description",
+                "ejemplo": {
+                    "name": "ejemplo",
                     "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
+                    "type": {
+                        "model": "Ejemplo"
+                    },
+                    "isRequired": true,
+                    "attributes": [],
+                    "association": {
+                        "connectionType": "BELONGS_TO",
+                        "targetName": "ejemploID"
+                    }
                 },
                 "createdAt": {
                     "name": "createdAt",
@@ -115,25 +280,27 @@ export const schema = {
                 }
             },
             "syncable": true,
-            "pluralName": "Ejemplos",
+            "pluralName": "Ejemplo2Ejemplos",
             "attributes": [
                 {
                     "type": "model",
                     "properties": {}
                 },
                 {
-                    "type": "auth",
+                    "type": "key",
                     "properties": {
-                        "rules": [
-                            {
-                                "allow": "public",
-                                "operations": [
-                                    "create",
-                                    "update",
-                                    "delete",
-                                    "read"
-                                ]
-                            }
+                        "name": "byEjemplo2",
+                        "fields": [
+                            "ejemplo2ID"
+                        ]
+                    }
+                },
+                {
+                    "type": "key",
+                    "properties": {
+                        "name": "byEjemplo",
+                        "fields": [
+                            "ejemploID"
                         ]
                     }
                 }
@@ -142,5 +309,5 @@ export const schema = {
     },
     "enums": {},
     "nonModels": {},
-    "version": "ae458677ce37f89a8ad926b850121bff"
+    "version": "8257a9143ac49c9539d3dc9a65535ff3"
 };

@@ -1,3 +1,9 @@
+type Ejemplo2 @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  descripcion: String
+  Ejemplos: [Ejemplo] @manyToMany(relationName: "Ejemplo2Ejemplo")
+}
+
 type Todo @model @auth(rules: [{allow: public}]) {
   id: ID!
   name: String!
@@ -9,4 +15,6 @@ type Ejemplo @model @auth(rules: [{allow: public}]) {
   id: ID!
   name: String!
   description: String
-} 
+  ejemplo2s: [Ejemplo2] @manyToMany(relationName: "Ejemplo2Ejemplo")
+}
+ 

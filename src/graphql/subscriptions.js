@@ -10,6 +10,9 @@ export const onCreateTodo = /* GraphQL */ `
       nuevo
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
 `;
@@ -22,6 +25,9 @@ export const onUpdateTodo = /* GraphQL */ `
       nuevo
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
 `;
@@ -34,6 +40,9 @@ export const onDeleteTodo = /* GraphQL */ `
       nuevo
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
 `;
@@ -45,6 +54,9 @@ export const onCreateEjemplo = /* GraphQL */ `
       description
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
 `;
@@ -56,6 +68,9 @@ export const onUpdateEjemplo = /* GraphQL */ `
       description
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
 `;
@@ -67,6 +82,9 @@ export const onDeleteEjemplo = /* GraphQL */ `
       description
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
 `;

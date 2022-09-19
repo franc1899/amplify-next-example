@@ -13,6 +13,9 @@ export const createTodo = /* GraphQL */ `
       nuevo
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
 `;
@@ -28,6 +31,9 @@ export const updateTodo = /* GraphQL */ `
       nuevo
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
 `;
@@ -43,6 +49,9 @@ export const deleteTodo = /* GraphQL */ `
       nuevo
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
 `;
@@ -57,6 +66,9 @@ export const createEjemplo = /* GraphQL */ `
       description
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
 `;
@@ -71,6 +83,9 @@ export const updateEjemplo = /* GraphQL */ `
       description
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
 `;
@@ -85,6 +100,9 @@ export const deleteEjemplo = /* GraphQL */ `
       description
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
 `;
