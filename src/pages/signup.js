@@ -21,6 +21,7 @@ export default function Signup() {
   useEffect(() => {
     console.log(signUpError)
   }, [signUpError])
+  
 
   const onSubmit = async (data) => {
     try {
