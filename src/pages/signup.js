@@ -9,7 +9,6 @@ import { useRouter } from "next/router";
 export default function Signup() {
   const { user } = useUser();
   const router = useRouter();
-  const [open, setOpen] = useState(false);
   const [signUpError, setSignUpError] = useState("");
   const [showCode, setShowCode] = useState(false);
 
@@ -34,15 +33,7 @@ export default function Signup() {
     } catch (err) {
       console.error(err);
       setSignUpError(err.message);
-      setOpen(true);
     }
-  };
-
-  const handleClose = () => {
-    if (reason === "clickaway") {
-      return;
-    }
-    setOpen(false);
   };
 
   async function signUpWithEmailAndPassword(
