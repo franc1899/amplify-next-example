@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {useDropzone} from 'react-dropzone';
+import { Image } from "next/image";
 
 export default function DropzoneComponent({ file, setFile }) {
   const { getRootProps, getInputProps } = useDropzone({
@@ -51,7 +52,8 @@ export default function DropzoneComponent({ file, setFile }) {
               width: 100,
               height: 100,
               padding: 4}}>
-            <img
+            <Image
+              alt="Preview"
               src={URL.createObjectURL(file)}
               style={{ width: "auto", maxHeight: 320 }}
             />

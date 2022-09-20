@@ -6,6 +6,7 @@ import { API, withSSRContext } from 'aws-amplify';
 import { listTodos, getTodo } from '../../graphql/queries';
 import { useRouter } from 'next/router';
 import { Storage } from "aws-amplify";
+import { Image } from "next/image";
 
 
 export default function IndividualTodo({todo}) {
@@ -24,13 +25,13 @@ export default function IndividualTodo({todo}) {
             }
         }
         fetchTodoImage();
-    }, []);
+    }, [todo.image]);
     return (
         <div>
             <p>{todo.name}</p>
             <p>{todo.description}</p>
             <p>{todo.nuevo}</p>
-            <img src={todoImage} style={{ width: "auto", maxHeight: 320 }} />
+            { todoImage? <Image src={todoImage} style={{ width: "auto", maxHeight: 320 }} alt="ToDo Image" />: <></>}
             <button onClick={() => router.push('/')}>Go home!</button>
         </div>
     );
@@ -39,6 +40,8 @@ export default function IndividualTodo({todo}) {
 
 // This function gets called at build time
 export async function getStaticPaths() {
+
+    
     //Get the paths we want to pre-render based on todos with graphql
     const SSR = withSSRContext();
     // Call an external API endpoint to get todos
@@ -53,7 +56,7 @@ export async function getStaticPaths() {
     // { fallback: blocking } will server-render pages
     // { fallback: false } means other routes should 404.
     return { paths, fallback: "blocking" }
-
+    
 
     /*
     // Get the paths we want to pre-render based on todos with DataStore
@@ -72,6 +75,7 @@ export async function getStaticProps({ params }) {
     // If the route is like /todos/1, then params.id is 1
 
     //Get props with graphql query
+    
     const SSR = withSSRContext();
     const todoQuery = await SSR.API.graphql({ query: getTodo, variables: { id: params.id } });
     // Pass post data to the page via props
@@ -84,6 +88,7 @@ export async function getStaticProps({ params }) {
         // - At most once every 10 seconds
         revalidate: 1, // In seconds
     }
+    
     
     /*
     // Get props from DataStore query
