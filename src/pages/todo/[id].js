@@ -20,9 +20,10 @@ export default function IndividualTodo({todo}) {
 
 
 // This function gets called at build time
+
 export async function getStaticPaths() {
 
-    /*
+    
     //Get the paths we want to pre-render based on todos with graphql
     const SSR = withSSRContext();
     // Call an external API endpoint to get todos
@@ -37,26 +38,31 @@ export async function getStaticPaths() {
     // { fallback: blocking } will server-render pages
     // { fallback: false } means other routes should 404.
     return { paths, fallback: "blocking" }
-    */
+    
 
     
     // Get the paths we want to pre-render based on todos with DataStore
+
+    /*
     const SSR = withSSRContext();
     const response = await SSR.DataStore.query(Todo);
     const paths = response.map((todo) => ({
         params: { id: todo.id },
     }))
     return { paths, fallback: "blocking" }
-    
-  };
+  */
+
+    };
 
   // This also gets called at build time
+
 export async function getStaticProps({ params }) {
+
     // params contains the todo `id`.
     // If the route is like /todos/1, then params.id is 1
 
     //Get props with graphql query
-    /*
+    
     
     const SSR = withSSRContext();
     const todoQuery = await SSR.API.graphql({ query: getTodo, variables: { id: params.id } });
@@ -70,10 +76,13 @@ export async function getStaticProps({ params }) {
         // - At most once every 10 seconds
         revalidate: 1, // In seconds
     }
-    */
     
     
+
+
+    /*
     // Get props from DataStore query
+
     const SSR = withSSRContext();
     const todoQuery = await SSR.DataStore.query(Todo, params.id);
     return {
@@ -82,5 +91,6 @@ export async function getStaticProps({ params }) {
         },
         revalidate: 1, // In seconds
     }
+    */
     
   }
