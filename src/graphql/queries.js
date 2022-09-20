@@ -1,6 +1,89 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const getEjemplo2 = /* GraphQL */ `
+  query GetEjemplo2($id: ID!) {
+    getEjemplo2(id: $id) {
+      id
+      descripcion
+      Ejemplos {
+        items {
+          id
+          ejemplo2ID
+          ejemploID
+          createdAt
+          updatedAt
+          _version
+          _deleted
+          _lastChangedAt
+        }
+        nextToken
+        startedAt
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const listEjemplo2s = /* GraphQL */ `
+  query ListEjemplo2s(
+    $filter: ModelEjemplo2FilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listEjemplo2s(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        descripcion
+        Ejemplos {
+          nextToken
+          startedAt
+        }
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
+export const syncEjemplo2s = /* GraphQL */ `
+  query SyncEjemplo2s(
+    $filter: ModelEjemplo2FilterInput
+    $limit: Int
+    $nextToken: String
+    $lastSync: AWSTimestamp
+  ) {
+    syncEjemplo2s(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      lastSync: $lastSync
+    ) {
+      items {
+        id
+        descripcion
+        Ejemplos {
+          nextToken
+          startedAt
+        }
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
 export const getTodo = /* GraphQL */ `
   query GetTodo($id: ID!) {
     getTodo(id: $id) {
@@ -8,6 +91,7 @@ export const getTodo = /* GraphQL */ `
       name
       description
       nuevo
+      image
       createdAt
       updatedAt
       _version
@@ -28,6 +112,7 @@ export const listTodos = /* GraphQL */ `
         name
         description
         nuevo
+        image
         createdAt
         updatedAt
         _version
@@ -57,6 +142,7 @@ export const syncTodos = /* GraphQL */ `
         name
         description
         nuevo
+        image
         createdAt
         updatedAt
         _version
@@ -74,6 +160,20 @@ export const getEjemplo = /* GraphQL */ `
       id
       name
       description
+      ejemplo2s {
+        items {
+          id
+          ejemplo2ID
+          ejemploID
+          createdAt
+          updatedAt
+          _version
+          _deleted
+          _lastChangedAt
+        }
+        nextToken
+        startedAt
+      }
       createdAt
       updatedAt
       _version
@@ -93,6 +193,10 @@ export const listEjemplos = /* GraphQL */ `
         id
         name
         description
+        ejemplo2s {
+          nextToken
+          startedAt
+        }
         createdAt
         updatedAt
         _version
@@ -121,6 +225,143 @@ export const syncEjemplos = /* GraphQL */ `
         id
         name
         description
+        ejemplo2s {
+          nextToken
+          startedAt
+        }
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
+export const getEjemplo2Ejemplo = /* GraphQL */ `
+  query GetEjemplo2Ejemplo($id: ID!) {
+    getEjemplo2Ejemplo(id: $id) {
+      id
+      ejemplo2ID
+      ejemploID
+      ejemplo2 {
+        id
+        descripcion
+        Ejemplos {
+          nextToken
+          startedAt
+        }
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      ejemplo {
+        id
+        name
+        description
+        ejemplo2s {
+          nextToken
+          startedAt
+        }
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const listEjemplo2Ejemplos = /* GraphQL */ `
+  query ListEjemplo2Ejemplos(
+    $filter: ModelEjemplo2EjemploFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listEjemplo2Ejemplos(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        ejemplo2ID
+        ejemploID
+        ejemplo2 {
+          id
+          descripcion
+          createdAt
+          updatedAt
+          _version
+          _deleted
+          _lastChangedAt
+        }
+        ejemplo {
+          id
+          name
+          description
+          createdAt
+          updatedAt
+          _version
+          _deleted
+          _lastChangedAt
+        }
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
+export const syncEjemplo2Ejemplos = /* GraphQL */ `
+  query SyncEjemplo2Ejemplos(
+    $filter: ModelEjemplo2EjemploFilterInput
+    $limit: Int
+    $nextToken: String
+    $lastSync: AWSTimestamp
+  ) {
+    syncEjemplo2Ejemplos(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      lastSync: $lastSync
+    ) {
+      items {
+        id
+        ejemplo2ID
+        ejemploID
+        ejemplo2 {
+          id
+          descripcion
+          createdAt
+          updatedAt
+          _version
+          _deleted
+          _lastChangedAt
+        }
+        ejemplo {
+          id
+          name
+          description
+          createdAt
+          updatedAt
+          _version
+          _deleted
+          _lastChangedAt
+        }
         createdAt
         updatedAt
         _version

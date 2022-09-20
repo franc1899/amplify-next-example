@@ -2,5 +2,11 @@
   "AppSyncApiName": "amplifytest",
   "DynamoDBBillingMode": "PAY_PER_REQUEST",
   "DynamoDBEnableServerSideEncryption": false,
-  "AuthModeLastUpdated": "2022-09-18T05:03:30.421Z"
+  "AuthModeLastUpdated": "2022-09-19T23:48:37.707Z",
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "authamplifytest53cda72a",
+      "Outputs.UserPoolId"
+    ]
+  }
 }

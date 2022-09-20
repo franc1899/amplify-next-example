@@ -13,7 +13,9 @@
     },
     "categories": {
       "auth": {
-        "amplifytest27638372": {}
+        "true": {},
+        "amplifytest": {},
+        "amplifytest53cda72a": {}
       }
     }
   }

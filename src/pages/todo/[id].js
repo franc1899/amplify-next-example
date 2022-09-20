@@ -1,16 +1,37 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { DataStore } from 'aws-amplify';
 import { Todo } from '../../models';
 import { serializeModel } from '@aws-amplify/datastore/ssr';
 import { API, withSSRContext } from 'aws-amplify';
 import { listTodos, getTodo } from '../../graphql/queries';
+import { useRouter } from 'next/router';
+import { Storage } from "aws-amplify";
 
 
 export default function IndividualTodo({todo}) {
+    const router = useRouter();
+    const [todoImage, setTodoImage] = useState();
+
+    useEffect(() => {
+        async function fetchTodoImage() {
+            try{
+                const imageURL = await Storage.get(todo.image);
+                setTodoImage(imageURL);
+            } catch (error){
+                console.log(
+                    "Error getting image for todo"
+                );
+            }
+        }
+        fetchTodoImage();
+    }, []);
     return (
         <div>
             <p>{todo.name}</p>
             <p>{todo.description}</p>
+            <p>{todo.nuevo}</p>
+            <img src={todoImage} style={{ width: "auto", maxHeight: 320 }} />
+            <button onClick={() => router.push('/')}>Go home!</button>
         </div>
     );
 }

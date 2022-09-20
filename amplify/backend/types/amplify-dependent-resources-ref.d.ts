@@ -7,7 +7,7 @@ export type AmplifyDependentResourcesAttributes = {
         }
     },
     "auth": {
-        "amplifytest27638372": {
+        "amplifytest53cda72a": {
             "IdentityPoolId": "string",
             "IdentityPoolName": "string",
             "UserPoolId": "string",
@@ -15,6 +15,12 @@ export type AmplifyDependentResourcesAttributes = {
             "UserPoolName": "string",
             "AppClientIDWeb": "string",
             "AppClientID": "string"
+        }
+    },
+    "storage": {
+        "projectimages": {
+            "BucketName": "string",
+            "Region": "string"
         }
     }
 }

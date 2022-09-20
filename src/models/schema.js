@@ -184,6 +184,13 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
+                "image": {
+                    "name": "image",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
                 "createdAt": {
                     "name": "createdAt",
                     "isArray": false,
@@ -214,6 +221,15 @@ export const schema = {
                         "rules": [
                             {
                                 "allow": "public",
+                                "operations": [
+                                    "create",
+                                    "update",
+                                    "delete",
+                                    "read"
+                                ]
+                            },
+                            {
+                                "allow": "private",
                                 "operations": [
                                     "create",
                                     "update",
@@ -309,5 +325,5 @@ export const schema = {
     },
     "enums": {},
     "nonModels": {},
-    "version": "8257a9143ac49c9539d3dc9a65535ff3"
+    "version": "8c956cf57cb32847f15c2b4262bbebf4"
 };

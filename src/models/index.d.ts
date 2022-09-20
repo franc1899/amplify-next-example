@@ -42,6 +42,7 @@ export declare class Todo {
   readonly name: string;
   readonly description?: string | null;
   readonly nuevo?: string | null;
+  readonly image?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
   constructor(init: ModelInit<Todo, TodoMetaData>);
