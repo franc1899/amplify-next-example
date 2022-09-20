@@ -25,7 +25,7 @@ export default function TodoComponent({ todo }) {
             <p>{todo.description}</p>
             <p>{todo.nuevo}</p>
             {todo.image && todoImage && (
-                  <Image
+                  <img
                     src={todoImage}
                     height={540}
                     width={980}
