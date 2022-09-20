@@ -52,7 +52,7 @@ export default function ImageDropzone({ file, setFile }) {
               width: 100,
               height: 100,
               padding: 4}}>
-            <Image
+            <img
               alt="Preview"
               src={URL.createObjectURL(file)}
               style={{ width: "auto", maxHeight: 320 }}
