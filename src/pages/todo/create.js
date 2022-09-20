@@ -1,4 +1,3 @@
-import DropzoneComponent from "../../components/ImageDropZone";
 import { useForm } from "react-hook-form";
 import { Todo } from '../../models';
 import { DataStore } from "aws-amplify";
@@ -8,6 +7,7 @@ import { v4 as uuidv4 } from "uuid";
 import { createTodo } from "../../graphql/mutations";
 import { useUser } from "../../context/AuthContext";
 import { useRouter } from "next/router";
+import ImageDropzone from "../../components/ImageDropzone";
 
 export default function CreateTodo() {
     const {user} = useUser();
@@ -71,7 +71,7 @@ export default function CreateTodo() {
                     <label>Nuevo</label>
                     <input {...register("nuevo")} />
                     <label>Image:</label>
-                    <DropzoneComponent file={file} setFile={setFile} />
+                    <ImageDropzone file={file} setFile={setFile} />
                     <button type="submit">Create Todo</button>
                 </form>
             </div>

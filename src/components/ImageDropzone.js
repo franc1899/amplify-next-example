@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {useDropzone} from 'react-dropzone';
 import { Image } from "next/image";
 
-export default function DropzoneComponent({ file, setFile }) {
+export default function ImageDropzone({ file, setFile }) {
   const { getRootProps, getInputProps } = useDropzone({
     maxFiles: 1,
     accept: "image/*",
