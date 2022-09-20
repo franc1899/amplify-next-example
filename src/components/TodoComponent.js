@@ -17,7 +17,7 @@ export default function TodoComponent({ todo }) {
             }
         }
         fetchTodoImage();
-    }, []);
+    }, [todo.image]);
 
     return (
         <div>
